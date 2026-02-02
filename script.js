@@ -1,6 +1,6 @@
 // Ofuscação básica da URL para evitar rastreadores simples
 const part1 = "https://script.google.com/macros/s/";
-const part2 = "AKfycbwzx_geUAEu6WzyIwDr0-L6rZhf44OB_AhFS4vHkTlbfPkweYfqih31GTyxSdfdzaaVbQ";
+const part2 = "AKfycbxJRT_G8081UaAGtDk-K2vXRT_BohWYgOfVs5EkbiNDKFa4NukomPyYOcSmmNzXnjKBSw";
 const part3 = "/exec";
 const SCRIPT_URL = part1 + part2 + part3;
 
@@ -41,10 +41,11 @@ document.getElementById('finance-form').addEventListener('submit', async (e) => 
     btn.classList.add('opacity-50', 'cursor-not-allowed');
 
     const payload = {
-        token: userToken, // Enviamos a senha que você digitou no início
+        token: userToken, 
         data: document.getElementById('data').value,
+        tipo: document.getElementById('tipo').value, // NOVO CAMPO
         descricao: document.getElementById('desc').value,
-        valor: document.getElementById('valor').value,
+        valor: parseFloat(document.getElementById('valor').value), // Garantir que vai como número
         categoria: document.getElementById('categoria').value,
         formaPagamento: document.getElementById('forma').value,
         status: document.getElementById('status').value,
